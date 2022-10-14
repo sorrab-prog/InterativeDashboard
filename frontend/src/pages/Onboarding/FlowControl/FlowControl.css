@@ -1,0 +1,145 @@
+.onboarding-flow-container{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em;
+    padding: 1em;
+}
+
+.onboarding-flow-container h1{
+    color: #828282;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.reload-button{
+    width: auto;
+    border: none;
+    background-color: #cef8ac;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.reload-button:hover{
+    background-color: #80ff80;
+}
+
+.onboarding-flow-control-card{
+    max-width: 100%;
+    height: 700px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    box-sizing: border-box;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 2ch;
+    scroll-behavior: smooth;
+    scroll-snap-align: center;
+}
+
+.onboarding-flow-col{
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1em;
+    align-items: flex-start;
+    background-color: #f1f0f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    
+}
+
+.onboarding-flow-col h2{
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid #000000;
+    cursor: pointer;
+    white-space: nowrap;
+    padding-block: 0.5em;
+}
+
+.client-name{
+    width: 115%;
+    height: 30px;
+    background-image: linear-gradient(to right,  #f1f0f0 80%, #80ff00 90%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    font-weight: bold;
+    margin: 0;
+    padding-inline: 1em;;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom-left-radius: 8px;
+    text-decoration: none;
+}
+
+.onboarding-status-complete{
+    width: 115%;
+    height: 30px;
+    margin: 0;
+    padding-inline: 1em;;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #80ff00;
+    color: #261447;
+}
+
+.onboarding-status-incomplete{
+    width: 115%;
+    height: 30px;
+    margin: 0;
+    padding-inline: 1em;;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #fbff00;
+    color: #261447;
+}
+
+.error-status{
+    width: 115%;
+    height: 30px;
+    margin: 0;
+    padding-inline: 1em;;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #fa2929;
+    color: #ffffff;
+}
