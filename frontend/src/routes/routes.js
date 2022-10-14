@@ -16,6 +16,7 @@ function Router() {
         <Routes>
             <Route path = "/login" element={<Login />}/>
             <Route path = "/" element={<App/>}/>
+            <Route path = "/onboarding-flow-control" element={<App/>}/>
         </Routes>
     </BrowserRouter>
   )

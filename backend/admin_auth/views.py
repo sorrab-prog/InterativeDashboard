@@ -54,6 +54,18 @@ class LoginView(APIView):
         }
         
         return response
+
+class LogoutUserView(APIView):
+    def post(self, request):
+        
+        # Removing cookie to logout
+        response = Response()
+        response.delete_cookie('jwt')
+        response.data = {
+            'Message': 'Token Deleted Successfully',
+        }
+        
+        return response
     
 class UserAdminView(APIView):
     permission_classes = [AllowAny]

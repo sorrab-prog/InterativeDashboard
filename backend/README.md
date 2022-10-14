@@ -72,39 +72,6 @@ E para subir o container:
 docker-compose up
 ```
 
-Após as modificações realizadas, para realizar o deploy no servidor de produção:
-```
-heroku login
-```
-
-Nisto abrirá a tela para logar no Heroku, neste caso, o servidor está hospedado na conta do Pedro Barros.
-
-Ao logar na conta, basta executar os seguintes comandos:
-Para se conectar ao servidor de produção
-```
-heroku git:remote -a fitbank-dashboard-auth
-```
-
-Para adicionar todos os arquivos
-```
-git add .
-```
-
-Para comitar todos os arquivos
-```
-git commit -m "{Sua mensagem}"
-```
-
-Para realizar o deploy no bitbucket
-```
-git push -u origin master --force
-```
-
-Para realizar o deploy no heroku
-```
-git push -u heroku master --force
-```
-
 ## Usage <a name = "usage"></a>
 
 Os usuário serão encontrados no arquivo .models dentro da pasta auth_admin, para adição de novos campos, ou edição dos existentes, basta adicionar ou editar de acordo com os Models do Django, e realizar as migrações.
