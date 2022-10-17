@@ -2,13 +2,18 @@
     box-sizing: border-box;
     background-color: #FFFFFF;
     font-family: 'Open Sans', sans-serif;
-    padding-inline: 2em;
+    padding-inline: 1vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .navbar-buttons-container{
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
     gap: 2em;

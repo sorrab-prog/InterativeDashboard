@@ -45,7 +45,7 @@ function NavBar() {
           navigate('/login')
         }
     })
-  }, [navigate])
+  }, [])
 
   function navigateTo(url){
     navigate('/' + url)
@@ -64,7 +64,6 @@ function NavBar() {
 
   return (
     <Navbar className="nav">
-      <Container>
         <Navbar.Brand href="/" style={{ fontSize: '1.8em'}}>Fitbank-Dashboard</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
@@ -79,7 +78,6 @@ function NavBar() {
             </Card>
           </Container>
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   )
 }

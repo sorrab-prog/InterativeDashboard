@@ -39,7 +39,7 @@ function Login() {
                 alert('Algo deu errado, por gentileza, contate o administrador')
             }
         })
-    }, [navigate])
+    }, [])
 
     const handleSubmit = ((e) => {
         e.preventDefault()
