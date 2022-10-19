@@ -5,7 +5,8 @@ import './Login.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import axiosInstance from '../../api/axios'
+// Login API
+import axiosInstanceLogin from '../../api/login'
 
 // React-Router-DOM component to redirect user to another page
 import { useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ function Login() {
 
         // This function will try to get user informations through the get method on the serverside API, if get something, redirect user directly to the homepage, that indicates that the user is still logged in
 
-        axiosInstance.get('admin-auth-api/user/')
+        axiosInstanceLogin.get('admin-auth-api/user/')
             .then((res) => {
                 navigate('/')
         })
@@ -46,7 +47,7 @@ function Login() {
         var username = document.getElementById('form-username')
         var password = document.getElementById('form-password')
 
-        axiosInstance.post(`admin-auth-api/login/`, {
+        axiosInstanceLogin.post(`admin-auth-api/login/`, {
             username: username.value,
             password: password.value,
         })

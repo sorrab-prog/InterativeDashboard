@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-import axiosInstance from '../../api/axios'
+import axiosInstanceLogin from '../../api/login'
 
 // Bootstrap Components
 import Container from 'react-bootstrap/Container';
@@ -21,7 +21,7 @@ function NavBar() {
   const [user, setUser] = React.useState([])
 
   React.useEffect(() => {
-    axiosInstance.get('admin-auth-api/user/')
+    axiosInstanceLogin.get('admin-auth-api/user/')
       .then((res) => {
         setUser(res.data)
     })
@@ -53,7 +53,7 @@ function NavBar() {
 
   function logout(e){
     e.preventDefault()
-    axiosInstance.post('admin-auth-api/logout/')
+    axiosInstanceLogin.post('admin-auth-api/logout/')
     .then((res) => {
       navigate('/login')
     })

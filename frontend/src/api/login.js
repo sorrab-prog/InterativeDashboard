@@ -3,8 +3,11 @@ import axios from 'axios'
 // Cookies manipulation lib
 import Cookies from 'cookies-js'
 
-const axiosInstance =  axios.create({
-    baseURL: 'http://localhost:8000/',
+// Access .env file
+require('dotenv').config()
+
+const axiosInstanceLogin =  axios.create({
+    baseURL: process.env.REACT_APP_API_URL_LOGIN,
     withCredentials: true,
     headers: {
         "Authorization": Cookies.get('jwt') ? 'Bearer ' + Cookies.get('jwt') : null,
@@ -12,4 +15,4 @@ const axiosInstance =  axios.create({
     },
 })
 
-export default axiosInstance
+export default axiosInstanceLogin
