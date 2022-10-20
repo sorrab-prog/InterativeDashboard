@@ -54,7 +54,6 @@ function Login() {
         .then((res) => {
             navigate('/')
         }).catch((error) => {
-            console.log(error)
             if(error.response.data){
                 if(error.response.data.detail === "Usuário não encontrado"){
                     alert('Usuário não encontrado')

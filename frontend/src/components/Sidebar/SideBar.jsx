@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 
 // React-Icons Components
-import { BsFillPersonCheckFill, BsFillPersonXFill, BsExclamationTriangleFill, BsFillPersonLinesFill, BsBezier } from "react-icons/bs";
+import { BsFillPersonCheckFill, BsFillPersonXFill, BsExclamationTriangleFill, BsFillPersonLinesFill, BsBezier, BsFillHouseFill } from "react-icons/bs";
 
 function SideBar() {
 
@@ -42,6 +42,7 @@ function SideBar() {
         {isOpen ? <Card className="responsive-sidebar">
                     <Card.Body>
                       <Stack direction="vertical" gap={3}>
+                        <a href="/">Home <BsFillHouseFill/></a>
                         <h2>Onboarding</h2>
                         <a href="/onboarding-flow-control">Controle de Fluxo <BsBezier/></a>
                         <a href="/onboarding-approved-clients">Clientes Aprovados <BsFillPersonCheckFill/></a>

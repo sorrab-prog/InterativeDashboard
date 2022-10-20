@@ -1,0 +1,107 @@
+.flow-control-page{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-inline: 2em;
+    padding-block: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flow-control-container{
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 2em;
+}
+
+.flow-control-container h1{
+    font-size: 1.6em;
+    color: #979595;
+    width: auto;
+    height: auto;
+}
+
+.flow-control-title-container p{
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.flow-control{
+    width: 100%;
+    padding: 2em;
+}
+
+.flow-control-title-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+}
+
+.flow-control-title-button{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flow-control-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;   
+}
+
+.flow-control-col{
+    background-color: #eeeeee;
+    padding: 1em;
+    width: 20%;
+}
+
+.flow-control-col h1{
+    color: #000000;
+    font-size: 1.2em;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flow-control-col p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.complete{
+    color: #55aa55;
+    font-weight: bold;
+}
+
+.incomplete{
+    color: #ff8480;
+    font-weight: bold;
+}
