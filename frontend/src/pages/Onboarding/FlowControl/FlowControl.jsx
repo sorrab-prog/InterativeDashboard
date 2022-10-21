@@ -113,15 +113,21 @@ function FlowControl() {
               ))}
             </Col>
             <Col className="flow-control-col">
-              <h1>Obrigações Fiscais</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              client.publiclyExposedPerson === false ? <p className="incomplete">Incompleto </p> : <p className="complete">Completo</p>
-              ))}
-            </Col>
-            <Col className="flow-control-col">
               <h1>Termos e Condições</h1>
               {clients.slice(firstCount,lastCount).map((client) => (
               client.acceptedTermsAndConditions === false ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
+              ))}
+            </Col>
+            <Col className="flow-control-col">
+              <h1>PPE</h1>
+              {clients.slice(firstCount,lastCount).map((client) => (
+              client.publiclyExposedPerson === false ? <p className="incomplete">Não </p> : <p className="complete">Sim</p>
+              ))}
+            </Col>
+            <Col className="flow-control-col">
+              <h1>Possui TIN?</h1>
+              {clients.slice(firstCount,lastCount).map((client) => (
+              client.tin === null ? <p className="incomplete">Não </p> : <p className="complete">Sim</p>
               ))}
             </Col>
           </Row>
