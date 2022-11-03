@@ -9,7 +9,6 @@ import Card from 'react-bootstrap/Card';
 
 // React-Icons Components
 import { FiSettings } from "react-icons/fi";
-import { IoMdNotificationsOutline } from "react-icons/io";
 
 // React-Router-DOM component to redirect user to another page
 import { useNavigate } from "react-router-dom";
@@ -36,12 +35,12 @@ function NavBar() {
             navigate('/login')
           }
           else{
-            alert('Algo deu errado, por gentileza, contate o administrador')
+            alert('Algo deu errado ao carregar dados do usuário')
             navigate('/login')
           }
         }
         else{
-          alert('Algo deu errado, por gentileza, contate o administrador')
+          alert('Algo deu errado ao coletar dados do usuário')
           navigate('/login')
         }
     })
@@ -58,7 +57,7 @@ function NavBar() {
       navigate('/login')
     })
     .catch((error) => {
-      alert('Algo deu errado, por gentileza, contate o administrador')
+      alert('Algo deu errado ao tentar realizar o logout')
     })
   }
 
@@ -69,7 +68,6 @@ function NavBar() {
         <Navbar.Collapse className="justify-content-end">
           <Container className="navbar-buttons-container">
             <FiSettings onClick={e => navigateTo('config')}className="nav-buttons"/>
-            <IoMdNotificationsOutline onClick={e => navigateTo('config')} className="nav-buttons"/>
             <Card className="profile-button">
               <Card.Body>
                 <Card.Title>{user.name}</Card.Title>

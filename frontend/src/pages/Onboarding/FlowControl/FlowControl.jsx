@@ -25,10 +25,10 @@ function FlowControl() {
   const [lastCount, setLastCount] = React.useState(15)
   const [maxCount, setMaxCount] = React.useState(0)
   const [pages, setPages] = React.useState(0)
+  const [search, setSearch] = React.useState('')
 
   function handlePreviousPage(e){
     e.preventDefault()
-
     setPages(pages - 1)
     setActivePreviousButton(true)
     setActiveNextButton(true)
@@ -41,7 +41,6 @@ function FlowControl() {
 
   function handleNextPage(e){
     e.preventDefault()
-    
     setPages(pages + 1)
     setActivePreviousButton(true)
     setActiveNextButton(true)
@@ -54,33 +53,50 @@ function FlowControl() {
 
   function handleUpdate(e){
     e.preventDefault()
-    axiosInstanceOnboarding.get('person/natural/')
+    setSearch('')
+    axiosInstanceOnboarding.get('process/')
     .then((res) => {
       setClients(res.data.items)
       setPages(0)
       setFirstCount(0)
       setLastCount(15)
+      setActiveNextButton(true)
+      setActivePreviousButton(false)
     })
     .catch((error) => {
-      alert('Algo deu errado, por gentileza, contate o administrador')
+      alert('Algo deu errado ao coletar clientes para o controle de fluxo')
       navigate('/')
     })
   }
+
+  const filtered_clients = React.useMemo(() => {
+    const lower_search = search.toLowerCase()
+    setPages(0)
+    setFirstCount(0)
+    setLastCount(15)
+    setActivePreviousButton(false)
+    setActiveNextButton(true)
+    return clients.filter((client) => (client.name || '').toString().toLowerCase().includes(lower_search))
+  }, [clients, search])
 
   React.useEffect(() => {
     if(firstCount === 0){
       setActivePreviousButton(false)
     }
-    axiosInstanceOnboarding.get('person/natural/')
+    axiosInstanceOnboarding.get('process/')
     .then((res) => {
       setClients(res.data.items)
       setMaxCount(res.data.items.length)
     })
     .catch((error) => {
-      alert('Algo deu errado, por gentileza, contate o administrador')
+      alert('Algo deu errado ao coletar clientes para o controle de fluxo')
       navigate('/')
     })
   }, [])
+
+  function handleClientProfile(client_id){
+    navigate('/client-profile/' + client_id)
+  }
 
   return (
     <div className="flow-control-page">
@@ -91,43 +107,53 @@ function FlowControl() {
           {activePreviousButton ? <Button variant="light" className="flow-control-title-button" onClick={handlePreviousPage}><AiOutlineArrowLeft/></Button> : <Button variant="light" className="flow-control-title-button" onClick={handlePreviousPage} disabled><AiOutlineArrowLeft/></Button>}
           <p>{pages}</p>
           {activeNextButton ? <Button variant="light" className="flow-control-title-button" onClick={handleNextPage} ><AiOutlineArrowRight/></Button> : <Button variant="light" className="flow-control-title-button" onClick={handleNextPage} disabled><AiOutlineArrowRight/></Button>}
+          <Col className="search-column">
+            <label>Procurar</label>
+            <input 
+            id='search_bar' 
+            type="text" 
+            name="search" 
+            list="clients" 
+            placeholder="Pesquisar clientes"
+            value={search}
+            onChange={(ev) => setSearch(ev.target.value)}/>
+            <datalist id="clients">
+                {clients.map((client) => (
+                    <option>{client.name}</option>
+                ))}
+            </datalist>
+        </Col>
         </Row>
         <Container className="flow-control">
           <Row className="flow-control-row">
             <Col className="flow-control-col">
               <h1>Nome</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              <p>{client.name}</p>    
+              {filtered_clients.slice(firstCount,lastCount).map((filtered_client) => (
+              <p onClick={() => handleClientProfile(filtered_client.id)}>{filtered_client.name}</p>    
               ))}
             </Col>
             <Col className="flow-control-col">
               <h1>Dados iniciais</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              client.verified === false ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
+              {filtered_clients.slice(firstCount,lastCount).map((filtered_client) => (
+              filtered_client.verified === false ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
               ))}
             </Col>
             <Col className="flow-control-col">
               <h1>Documentos</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              (client.documents || []).length === 0 ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
+              {filtered_clients.slice(firstCount,lastCount).map((filtered_client) => (
+              (filtered_client.documents || []).length === 0 ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
+              ))}
+            </Col>
+            <Col className="flow-control-col">
+              <h1>Obrigações Fiscais</h1>
+              {filtered_clients.slice(firstCount,lastCount).map((filtered_client) => (
+              filtered_client.acceptedTermsAndConditions === false ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
               ))}
             </Col>
             <Col className="flow-control-col">
               <h1>Termos e Condições</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              client.acceptedTermsAndConditions === false ? <p className="incomplete">Incompleto</p> : <p className="complete">Completo</p>
-              ))}
-            </Col>
-            <Col className="flow-control-col">
-              <h1>PPE</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              client.publiclyExposedPerson === false ? <p className="incomplete">Não </p> : <p className="complete">Sim</p>
-              ))}
-            </Col>
-            <Col className="flow-control-col">
-              <h1>Possui TIN?</h1>
-              {clients.slice(firstCount,lastCount).map((client) => (
-              client.tin === null ? <p className="incomplete">Não </p> : <p className="complete">Sim</p>
+              {filtered_clients.slice(firstCount,lastCount).map((filtered_client) => (
+              filtered_client.publiclyExposedPerson === false ? <p className="incomplete">Incompleto </p> : <p className="complete">Completo</p>
               ))}
             </Col>
           </Row>

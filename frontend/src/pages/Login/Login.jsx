@@ -32,12 +32,9 @@ function Login() {
                 else if(error.response.data.detail === "Expired Token"){
                     alert('Token expirado, realize o log-in novamente')
                 }
-                else{
-                    alert('Algo deu errado, por gentileza, contate o administrador')
-                }
             }
             else{
-                alert('Algo deu errado, por gentileza, contate o administrador')
+                alert('Algo deu errado ao coletar dados do erro para login automático')
             }
         })
     }, [])
@@ -66,13 +63,13 @@ function Login() {
                     password.value = ""
                 }
                 else{
-                    alert('Algo deu errado, por gentileza, contate o administrador')
+                    alert('Erro desconhecido retornado ao realizar login')
                     username.value = ""
                     password.value = ""
                 }
             }
             else{
-                alert('Algo deu errado, por gentileza, contate o administrador')
+                alert('Algo deu errado ao coletar dados para realizar login')
                 username.value = ""
                 password.value = ""
             }

@@ -1,0 +1,123 @@
+.clients-page{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    padding-inline: 2em;
+    padding-block: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-list-container{
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 2em;
+    gap: 2em;
+}
+
+.client-list-title-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1em;
+    color: #979595;
+    gap: 2vw;
+    
+}
+
+.client-list-container h1{
+    margin: 0;
+    padding: 0;
+    width: auto;
+    font-size: 2em;
+    color: #979595;
+}
+
+.client-list-title-container label{
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.client-list-title-container input{
+    width: 25%;
+    height: auto;
+}
+
+.clients-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.clients-col{
+    width: 25%;
+    height: 100%;
+    background-color: #eeeeee;
+}
+
+.clients-col h2{
+    font-size: 1.4em;
+    border-bottom: 1px solid #000000;
+    box-sizing: border-box;
+    padding: 0.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clients-col p{
+    font-size: 1.1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px){
+    .clients-col h2{
+        font-size: 1.8vw;
+    }
+
+    .clients-col p{
+        font-size: 1.5vw;
+    }
+}
+
+.clients-row .clients-col:nth-child(1) p{
+    font-weight: bold;
+    color: #01a3a3;
+    cursor: pointer;
+}
+
+.search-column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.search-column input{
+    width: 300px;
+    padding: 0.2em;
+    box-sizing: border-box;
+}

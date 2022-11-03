@@ -1,7 +1,7 @@
 .flow-control-page{
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: 90vh;
     padding-inline: 2em;
     padding-block: 2em;
     display: flex;
@@ -17,11 +17,12 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+    overflow-x: scroll;
     padding: 2em;
 }
 
@@ -70,15 +71,15 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;   
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1vw;   
 }
 
 .flow-control-col{
     background-color: #eeeeee;
     padding: 1em;
-    width: 20%;
+    width: 150px;
 }
 
 .flow-control-col h1{
@@ -94,6 +95,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.flow-control-col h1:hover{
+    overflow: visible;
+    text-overflow: initial;
+    white-space:initial;
+}
+
+.flow-control-row .flow-control-col:nth-child(1) p{
+    cursor: pointer;
+    font-weight: bold;
+    color: #01a3a3;
 }
 
 .complete{
