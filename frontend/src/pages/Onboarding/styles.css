@@ -1,0 +1,35 @@
+.onboarding-control-page{
+    box-sizing: border-box;
+    width: 100%;
+    height: 90vh;
+    padding-inline: 2em;
+    padding-block: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.onboarding-control-container{
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    padding: 2vw;
+    gap: 2vw;
+}
+
+.onboarding-control-container h1{
+    font-size: 1.6em;
+    color: #979595;
+    width: auto;
+    height: auto;
+}

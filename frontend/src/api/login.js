@@ -1,6 +1,4 @@
 import axios from 'axios'
-
-// Cookies manipulation lib
 import Cookies from 'cookies-js'
 
 // Access .env file

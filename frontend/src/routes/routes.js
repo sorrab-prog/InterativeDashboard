@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Pages
-import Login from '../pages/Login/Login'
+import Login from '../pages/Login/index'
 import App from '../App'
 
 import {
@@ -21,7 +21,9 @@ function Router() {
             <Route path = "/onboarding-approved-clients" element={<App/>}/>
             <Route path = "/onboarding-rejected-clients" element={<App/>}/>
             <Route path = "/onboarding-analysis-clients" element={<App/>}/>
+            <Route path = "/onboarding-error-logs" element={<App/>}/>
             <Route path= {'/client-profile/:id'} element={<App/>}/>
+            <Route path= {'/error-profile/:id'} element={<App/>}/>
         </Routes>
     </BrowserRouter>
   )
