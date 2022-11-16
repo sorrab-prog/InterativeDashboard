@@ -14,6 +14,8 @@ RUN yarn install
 # Copies everything over to Docker environment
 COPY . ./
 
+ENV GENERATE_SOURCEMAP false
+
 RUN yarn build
 
 #Stage 2
@@ -25,6 +27,9 @@ FROM nginx:1.23.2-alpine
 WORKDIR /usr/share/nginx/html
 # Remove default nginx static resources
 RUN rm -rf ./*
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copies static resources from builder stage
 COPY --from=builder /app/build .
 
