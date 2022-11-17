@@ -40,7 +40,7 @@ function ClientProfile() {
       console.log(error)
     })
     
-  }, [])
+  }, [clientParams.id])
 
   return (
     <div className="profile-page">

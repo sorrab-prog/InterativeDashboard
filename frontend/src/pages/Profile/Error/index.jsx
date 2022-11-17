@@ -29,7 +29,7 @@ function ErrorProfile() {
             }
             return null
         })
-    }, [])
+    }, [errorParams.id])
 
   return (
     <div className="profile-page">

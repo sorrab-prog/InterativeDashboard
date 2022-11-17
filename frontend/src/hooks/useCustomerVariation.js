@@ -27,7 +27,7 @@ function CustomerVariation(){
             })
         })
         .catch((error) => {
-            alert('Erro ao coletar dados de clientes em cadastramento')
+            console.log(error)
         })
     }, [])
     return [inRegistrationCustomers, previousRegistrationCustomers]

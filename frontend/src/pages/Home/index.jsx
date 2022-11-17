@@ -50,7 +50,7 @@ function Home() {
         icon={<BsPencilSquare className="card-icon"/>}
         subtitle={(inRegistrationCustomers || []).length === 0 ? <label>0 Clientes Hoje</label> : inRegistrationCustomers + " Clientes Hoje"}
         condition={inRegistrationCustomers >= previousRegistrationCustomers}
-        text={previousRegistrationCustomers + ' Clientes no dia anterior'}
+        text={(previousRegistrationCustomers || []).length === 0 ? <label>0 Clientes no dia anterior</label> : previousRegistrationCustomers + ' Clientes no dia anterior'}
         />
         <HomeCard
         title="Clientes Reprovados"

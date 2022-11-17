@@ -28,7 +28,7 @@ function Login() {
                 alert('Algo deu errado ao coletar dados do erro para login automático')
             }
         })
-    }, [])
+    }, [navigate])
 
     const handleSubmit = ((e) => {
         e.preventDefault()

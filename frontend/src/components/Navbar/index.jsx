@@ -32,7 +32,7 @@ function NavBar() {
           <Container className="navbar-buttons-container">
             <Card style={{ width: '15rem' }}>
               <Card.Body>
-                <Card.Title style = {{ fontSize:'1.4em', color:'#000000' }}>{user.name}</Card.Title>
+                <Card.Title style = {{ fontSize:'1.4em', color:'#000000' }}>{user.name === '' ? "Nome não cadastrado" : user.name}</Card.Title>
                 <Card.Link style={{ cursor: 'pointer' }} onClick ={logout}>Sair</Card.Link>
               </Card.Body>
             </Card>

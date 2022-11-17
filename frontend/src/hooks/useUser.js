@@ -2,7 +2,7 @@ import React from 'react'
 import axiosInstanceLogin from '../api/login'
 import { useNavigate } from "react-router-dom";
 
-function getLogin(){
+function GetLogin(){
     // Navigate is declareted here because of the Rules of Hooks, see more on: https://reactjs.org/warnings/invalid-hook-call-warning.html
     let navigate = useNavigate()
 
@@ -37,8 +37,8 @@ function getLogin(){
                 navigate('/login')
             }
         })
-    }, [])
+    }, [navigate])
     return user
 }
 
-export default getLogin
+export default GetLogin

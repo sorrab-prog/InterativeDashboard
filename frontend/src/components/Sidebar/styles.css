@@ -19,7 +19,7 @@
 }
 
 .content-list{
-    position: initial;
+    position: fixed;
 }
 
 .sidebar img{

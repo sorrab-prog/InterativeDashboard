@@ -113,7 +113,7 @@ function Registrations() {
           })
         })
         .catch((error) => {
-          alert('Erro ao tentar coletar dados do gráfico de Cadastros Iniciados')
+          alert('Erro ao coletar dados de cadastros iniciados')
         })
       }, [])
 

@@ -2,7 +2,7 @@ import React from 'react'
 import axiosInstanceOnboarding from '../api/onboarding'
 import { useNavigate } from "react-router-dom";
 
-function getClients(){
+function GetClients(){
     // Navigate is declareted here because of the Rules of Hooks, see more on: https://reactjs.org/warnings/invalid-hook-call-warning.html
     let navigate = useNavigate()
 
@@ -37,8 +37,8 @@ function getClients(){
             alert('Algo deu errado ao coletar clientes para o controle de fluxo')
            navigate('/')
         })
-    }, [])
+    }, [navigate])
     return clients
 }
 
-export default getClients
+export default GetClients

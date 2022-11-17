@@ -34,7 +34,7 @@ function Pagination(){
             setCurrentPage(0)
             setItensPerPage(itens.length)
         }
-    }, [search])
+    }, [search ,itens.length])
 
     return(
         <Container fluid className="onboarding-container">

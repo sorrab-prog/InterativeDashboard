@@ -9,11 +9,11 @@
 
 # Sobre <a name = "about"></a>
 
-O propósito desta ferramenta é controlar e administrar todos os usuários dentro do projeto: Fitbank-Dashboard, através do framework: Django, é possível criar, excluir e editar usuários para acessar o dashboard.
+O propósito desta ferramenta é controlar e administrar todos os usuários dentro do projeto: Fitbank-Dashboard, através do framework: Django, é possível criar, excluir e editar usuários para acessar o dashboard, feito em ReactJS
 
 A autenticação é feita via API do Rest Framework com JWT.
 
-Atualmente a ferramenta está rodando no Heroku gratuitamente, pois não serão realizadas diversas chamadas de API à todo momento, e também não há operações muito complexas nesta ferramenta, mas também é possível inserir o servidor na AWS, mas para isto é necessário retirar as configurações do Heroku do arquivo settings em backend, e remover o Procfile.
+O front-end é construído em ReactJS.
 
 # Dependências <a name="prerequisites"></a>
 
@@ -23,7 +23,7 @@ Atualmente a ferramenta está rodando no Heroku gratuitamente, pois não serão 
 
 ## Instalação Local <a name = "getting_started"></a>
 
-Esta ferramenta está atualmente Dockerizado, para instalá-lo localmente e editá-lo, siga os passos abaixo:
+Para instalá-lo localmente e editá-lo, siga os passos abaixo:
 
 "{ }" estarão marcados para indicar locais relativos, cujo você terá de editar
 
@@ -36,14 +36,29 @@ git clone {repositório}
 Instale o restante das dependências
 
 ```
+cd backend
 pip install -r requirements.txt
+cd frontend
+npm i
 ```
 
-Crie um arquivo .env na pasta backend e insira os seguintes comandos:
+Crie um arquivo .env na pasta backend e complete as seguintes variáveis de ambiente:
 ```
-SECRET_KEY = {Pedir Secret Key para Pedro Barros}
+SECRET_KEY = {Gerar e inserir Secret Key}
+DATABASE_HOST={Para desenvolvimento, utilize localhost}
+DATABASE_PORT={Inserir porta criada no postgres}
+DATABASE_USER={Inserir user criado no postgres}
+DATABASE_PASSWORD={Inserir senha criada no postgres}
+DATABASE_NAME={Inserir nome do banco de dados criado no postgres}
 DEBUG = {DEBUG = FALSE para produção, DEBUG = True para desenvolvimento local}
 ALLOWED_HOSTS = [localhost, 127.0.0.1, 192.168.15.14, 0.0.0.0]
+```
+
+Crie um arquivo .env na pasta frontend e complete as seguintes variáveis de ambiente:
+```
+REACT_APP_API_URL_LOGIN = {URL da API criada pelo backend}
+REACT_APP_API_URL_ONBOARDING = 'http://54.201.122.16:3003/'
+REACT_APP_API_API_KEY_ONBOARDING = {Key da API Onboarding}
 ```
 
 Realize as migrações para a criação do banco de dados
@@ -72,6 +87,11 @@ E para subir o container:
 docker-compose up
 ```
 
+Após isso, basta iniciar o servidor do dashboard:
+```
+npm start
+```
+
 ## Usage <a name = "usage"></a>
 
 Os usuário serão encontrados no arquivo .models dentro da pasta auth_admin, para adição de novos campos, ou edição dos existentes, basta adicionar ou editar de acordo com os Models do Django, e realizar as migrações.
@@ -81,7 +101,7 @@ Os usuário serão encontrados no arquivo .models dentro da pasta auth_admin, pa
 py manage.py createsuperuser
 ```
 
-Após isto é possível editar os campos no site administrativo.
+Após isto é possível adicionar um nome para o usuário e editar os campos no site administrativo.
 
 Também é importante ressaltar que a comunicação com o Dashboard é feito através do Rest Framework API do Django, então ao adicionar, editar ou excluir algum campo ou algum atributo do model, é necessário que os mesmos sejam adicionados, ou excluídos do serializer.
 

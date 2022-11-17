@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import getClients from '../../../hooks/useOnboardingClients'
 import formatCPF from '../../../tools/formatCPF'
+import formatDate from '../../../tools/formatDate'
 import React from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -33,7 +34,7 @@ function Pagination(){
             setCurrentPage(0)
             setItensPerPage(itens.length)
         }
-    }, [search])
+    }, [search, itens.length])
 
     return(
         <Container fluid className="onboarding-container">
@@ -83,6 +84,12 @@ function Pagination(){
                     })}
                 </Col>
                 <Col className="list-col">
+                    <h1>Data de Cadastro</h1>
+                    {filtered_itens.map(item => {
+                        return <p>{formatDate(item.createdAt)}</p>
+                    })}
+                </Col>
+                <Col className="list-col">
                     <h1>CPF</h1>
                     {filtered_itens.map(item => {
                         return <p>{formatCPF(item.cpf)}</p>
@@ -90,97 +97,77 @@ function Pagination(){
                 </Col>
                 <Col className="list-col">
                     <h1>Dados Iniciais</h1>
-                    {filtered_itens.map(item => {
-                        if(item.stages.length > 0){
-                            item.stages.map((stage) => {
-                                if(stage.id === 1){
-                                    return <p className="complete">Completo</p>
-                                }
-                                else{
-                                    return <p className="incomplete">Incompleto</p>
-                                }
-                            })
+                    {filtered_itens.map((item) => {
+                        const stageList = []
+                        item.stages.map((stage) => (
+                            stageList.push(stage.id)
+                        ))
+                        if(stageList.includes(1)){
+                            return <p className="complete">Completo</p>
                         }
                         else{
                             return <p className="incomplete">Incompleto</p>
                         }
-                        return <p className="incomplete">Incompleto</p>
                     })}
                 </Col>
                 <Col className="list-col">
                     <h1>Documentos</h1>
-                    {filtered_itens.map(item => {
-                        if(item.stages.length > 0){
-                            item.stages.map((stage) => {
-                                if(stage.id === 2){
-                                    return <p className="complete">Completo</p>
-                                }
-                                else{
-                                    return <p className="incomplete">Incompleto</p>
-                                }
-                            })
+                    {filtered_itens.map((item) => {
+                        const stageList = []
+                        item.stages.map((stage) => (
+                            stageList.push(stage.id)
+                        ))
+                        if(stageList.includes(2)){
+                            return <p className="complete">Completo</p>
                         }
                         else{
                             return <p className="incomplete">Incompleto</p>
                         }
-                        return <p className="incomplete">Incompleto</p>
                     })}
                 </Col>
                 <Col className="list-col">
                     <h1>Obrigações Fiscais</h1>
-                    {filtered_itens.map(item => {
-                        if(item.stages.length > 0){
-                            item.stages.map((stage) => {
-                                if(stage.id === 3){
-                                    return <p className="complete">Completo</p>
-                                }
-                                else{
-                                    return <p className="incomplete">Incompleto</p>
-                                }
-                            })
+                    {filtered_itens.map((item) => {
+                        const stageList = []
+                        item.stages.map((stage) => (
+                            stageList.push(stage.id)
+                        ))
+                        if(stageList.includes(3)){
+                            return <p className="complete">Completo</p>
                         }
                         else{
                             return <p className="incomplete">Incompleto</p>
                         }
-                        return <p className="incomplete">Incompleto</p>
                     })}
                 </Col>
                 <Col className="list-col">
                     <h1>Termos e Condições</h1>
-                    {filtered_itens.map(item => {
-                        if(item.stages.length > 0){
-                            item.stages.map((stage) => {
-                                if(stage.id === 4){
-                                    return <p className="complete">Completo</p>
-                                }
-                                else{
-                                    return <p className="incomplete">Incompleto</p>
-                                }
-                            })
+                    {filtered_itens.map((item) => {
+                        const stageList = []
+                        item.stages.map((stage) => (
+                            stageList.push(stage.id)
+                        ))
+                        if(stageList.includes(4)){
+                            return <p className="complete">Completo</p>
                         }
                         else{
                             return <p className="incomplete">Incompleto</p>
                         }
-                        return <p className="incomplete">Incompleto</p>
                     })}
                 </Col>
                 <Col className="list-col">
                     <h1>Finalização de Cadastro</h1>
-                    {filtered_itens.map(item => {
-                        if(item.stages.length > 0){
-                            item.stages.map((stage) => {
-                                if(stage.id === 5){
-                                    return <p className="complete">Completo</p>
-                                }
-                                else{
-                                    return <p className="incomplete">Incompleto</p>
-                                }
-                            })
+                    {filtered_itens.map((item) => {
+                        const stageList = []
+                        item.stages.map((stage) => (
+                            stageList.push(stage.id)
+                        ))
+                        if(stageList.includes(5)){
+                            return <p className="complete">Completo</p>
                         }
                         else{
                             return <p className="incomplete">Incompleto</p>
                         }
-                        return <p className="incomplete">Incompleto</p>
                     })}
                 </Col>
             </Row>
