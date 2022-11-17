@@ -133,10 +133,10 @@ function Pagination(){
                             stageList.push(stage.id)
                         ))
                         if(stageList.includes(3)){
-                            return <p className="complete">Completo</p>
+                            return <p className="complete">Preenchido</p>
                         }
                         else{
-                            return <p className="incomplete">Incompleto</p>
+                            return <p className="incomplete">Isento</p>
                         }
                     })}
                 </Col>
